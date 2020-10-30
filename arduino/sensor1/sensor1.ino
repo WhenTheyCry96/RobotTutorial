@@ -11,19 +11,29 @@ void setup() {
   pinMode(motor1B, OUTPUT);
   pinMode(motor2A, OUTPUT);
   pinMode(motor2B, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (digitalRead(SENSOR1) == HIGH){
+  int value1 = digitalRead(SENSOR1);
+  
+  Serial.print("조도센서: ");
+  Serial.println(value1);
+  
+  if (value1 == HIGH){
     // LED 센서에 HIGH가 입력된다면?
-    analogWrite(motor1A, 255); // 전진
-    analogWrite(motor2A, 255); // 전진
+    analogWrite(motor1A, 200); // 전진
+    analogWrite(motor1B, 0);
+    analogWrite(motor2A, 200); // 전진
+    analogWrite(motor2B, 0);
   }
 
   else {
-    analogWrite(motor1B, 255); // 후진
-    analogWrite(motor2B, 255); // 후진
+    analogWrite(motor1A, 0);
+    analogWrite(motor1B, 200); // 후진
+    analogWrite(motor2A, 0);
+    analogWrite(motor2B, 200); // 후진
   }
   delay(50);
 }

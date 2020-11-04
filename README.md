@@ -1,4 +1,5 @@
-# Introduction to Robot Making Class (로봇 제작 방과후 수업) 
+# Introduction to Robot Making Class 
+# 로봇 제작 방과후 수업 - 아두이노 기초 
 
 비전공자 및 고등학생을 위한 기초적인 로봇 제작 강의 발표 자료 및 예제 코드들입니다. 기본적인 아두이노 소개 및 자율주행 차량에 대한 간단한 프로젝트를 이해하는 것을 목표로 하고 있습니다.
 

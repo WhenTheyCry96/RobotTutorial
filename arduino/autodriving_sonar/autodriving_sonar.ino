@@ -57,7 +57,7 @@ void setup()
 void loop()
 {
   // 장애물이 있는지 먼저 판단
-  detect();
+  int checkif = detect();
   
   //신호가 있으면 LOW, 신호가 없으면 HIGH
   SL = digitalRead(SENSOR_L);
@@ -76,25 +76,30 @@ void loop()
   조건문 혹은 자동차의 운동 등을 본인의 취향에 맞추어
   바꿔보세요
    */
-  if (SL == HIGH && SR == LOW){
-    // 왼쪽에 선 발견
-    right();
+  if (checkif == 0) {
+    if (SL == HIGH && SR == LOW){
+      // 왼쪽에 선 발견
+      right();
+    }
+    else if (SL == LOW && SR == HIGH){
+      // 오른쪽에 선 발견
+      left();
+    }
+    else if (SR == HIGH && SL == HIGH){
+      // 차체 전반부에 선 발견
+      back();
+    }
+    else {
+      // 그 외의 경우
+      go(); 
+    }
   }
-  else if (SL == LOW && SR == HIGH){
-    // 오른쪽에 선 발견
-    left();
-  }
-  else if (SR == HIGH && SL == HIGH){
-    // 차체 전반부에 선 발견
-    back();
-  }
-  else {
-    // 그 외의 경우
-    go(); 
+  else{
+    brake();
   }
 }
 
-void detect() // 장애물이 있는지 판단하는 함수
+int detect() // 장애물이 있는지 판단하는 함수
 {
   // 자동차를 멈추게 할 거리 ex. stop_dist = 10; 장애물이 10cm 이내면 멈춰라
   float stop_dist = 10;
@@ -115,10 +120,14 @@ void detect() // 장애물이 있는지 판단하는 함수
   Serial.print(distance);
   Serial.println("cm");
   
+  int checkD = 0; // 장애물 있으면 1 없으면 0으로 return해라 (기본값: 장애물 없음 0)
+  
   if (distance < stop_dist) {
     // 장애물이 stop_dist 거리보다 짧을 경우, 부저를 울려라
     tone(buzzer, 1000, 200);
+    checkD = 1; // 장애물이 있다
   }
+  return checkD;
 }
 
 void go()//자동차가 전진하는 함수
@@ -194,7 +203,7 @@ void brake()//자동차가 멈추는 함수
   velocity: 0~255까지 가능 (너무 숫자가 작으면 모터가 안 돌 수도)
   duration: ms 단위 (ex. 100 = 0.1 초, 500 = 0.5초)
    */
-  int duration = 50;
+  int duration = 1000;
   analogWrite(Motor_L_BACK, 0);
   analogWrite(Motor_L_GO, 0);
   analogWrite(Motor_R_BACK, 0);

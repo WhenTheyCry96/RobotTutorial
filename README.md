@@ -32,15 +32,17 @@
 
 ### [Example Codes]
 
-* [DC모터 앞/뒤 제어](arduino/motorspeed1)
-* [적외선 센서 제어](arduino/sensor2)
-* [초음파 센서 제어](arduino/sonar1)
-* [초음파 센서+부저](arduino/buzzer1)
-* [부저로 노래부르기](arduino/buzzer2_despacito)
-* [아두이노 블루투스 통신](arduino/bluetooth1)
-* [아두이노 자율주행 로봇 (적외선센서)](arduino/autodriving)
-* [아두이노 자율주행 로봇 (적외선센서+초음파센서+부저)](arduino/autodriving_sonar)
-* [아두이노 따라오기 로봇](arduino/autotracking)
+* [DC모터 앞/뒤 제어](arduino/motorspeed1/motorspeed1/ino)
+* [적외선 센서 제어](arduino/sensor2/sensor2.ino)
+* [초음파 센서 제어](arduino/sonar1/sonar1.ino)
+* [초음파 센서+부저](arduino/buzzer1/buzzer1.ino)
+* [부저로 노래부르기](arduino/buzzer2_despacito/buzzer2_despacito.ino)
+* [서보모터 제어](arduino/servo1/servo1.ino)
+* [아두이노 블루투스 통신](arduino/bluetooth1/bluetooth1.ino)
+* [아두이노 블루투스 통신 (서보모터)](arduino/bluetooth2_servo/bluetooth2_servo.ino)
+* [아두이노 자율주행 로봇 (적외선센서)](arduino/autodriving/autodriving.ino)
+* [아두이노 자율주행 로봇 (적외선센서+초음파센서+부저)](arduino/autodriving_sonar/autodriving_sonar.ino)
+* [아두이노 따라오기 로봇](arduino/autotracking/autotracking.ino)
 
 
 ## Special Thanks...

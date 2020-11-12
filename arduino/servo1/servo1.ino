@@ -1,5 +1,5 @@
 #include <Servo.h>
-#define servoPin 9
+#define servoPin 11//9
 
 int angle = 0;  // 서보모터 각도 0도로 설정
 Servo servo;    // 서보모터 클래스 인스턴스 생성

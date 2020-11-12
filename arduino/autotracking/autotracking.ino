@@ -39,6 +39,12 @@ int SL;    //좌측센서 상태
 int SC;    //중간센서 상태
 int SR;    //우측센서 상태
 
+/*
+사람을 인식했다는 최소/최대 거리 설정
+ */
+const int min_dist = 5;
+const int max_dist = 30;
+
 void setup() {
   //모터 핀 설정
   pinMode(Motor_L_GO,OUTPUT);   // (PWM)
@@ -76,13 +82,13 @@ void loop() {
   Serial.print(distance);
   Serial.println(" [cm]");
   
-  if (SL == HIGH && distance >= 5 && distance <= 30 && SR == LOW) {
+  if (SL == HIGH && distance >= min_dist && distance <= max_dist && SR == LOW) {
     left();
   }
-  else if (SR == HIGH && distance >= 5 && distance <= 30 && SL == LOW) {
+  else if (SR == HIGH && distance >= min_dist && distance <= max_dist && SL == LOW) {
     right();
   }
-  else if (SL == HIGH && distance >= 5 && distance <= 30 && SR == HIGH) {
+  else if (SL == HIGH && distance >= min_dist && distance <= max_dist && SR == HIGH) {
     go();
   }
   else if (distance < 5) {

@@ -3,7 +3,7 @@
 
 #define BT_rx 7 // 블루투스 rx 핀 7번
 #define BT_tx 8 // 블루투스 tx 핀 8번
-#define motor_servo 9 // 서보모터 PWM핀 9번
+#define motor_servo 9 // 서보모터 PWM핀 9번 (9번 이미 썼으면 11번에 연결할 것!)
 /*
 초음파 센서를 부착하세요
  */
@@ -74,6 +74,8 @@ void loop()
     // 블루투스 데이터를 읽고, btData 변수에 저장
     char btData = bt.read(); 
     if (btData == 'a'){
+      Serial.print("블루투스 데이터: ");
+      Serial.println(btData);
       // 만약 데이터가 a 일 경우, 서보를 다음과 같이
       for (angle = 0; angle < 180; angle++) {
         // 서보 모터의 각도를 0 -> 180도 까지 증가
@@ -82,6 +84,8 @@ void loop()
       }
     }
     else if (btData == 'b') {
+      Serial.print("블루투스 데이터: ");
+      Serial.println(btData);
       // 만약 데이터가 b 일 경우, 서보를 다음과 같이
       for (angle = 180; angle > 0; angle--) {
         // 서보 모터의 각도를 180 -> 0도 까지 감소
@@ -89,8 +93,11 @@ void loop()
         delay(15);
       }      
     }
-    else {
-      Serial.println("블루투스 데이터가 a 혹은 b가 아닙니다!");
+    else if (btData == 's'){
+      Serial.print("블루투스 데이터: ");
+      Serial.println(btData);
+      servo.write(0);
+      delay(200);
     }
   }
 }

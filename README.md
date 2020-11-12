@@ -32,7 +32,7 @@
 
 ### [Example Codes]
 
-* [DC모터 앞/뒤 제어](arduino/motorspeed1/motorspeed1/ino)
+* [DC모터 앞/뒤 제어](arduino/motorspeed1/motorspeed1.ino)
 * [적외선 센서 제어](arduino/sensor2/sensor2.ino)
 * [초음파 센서 제어](arduino/sonar1/sonar1.ino)
 * [초음파 센서+부저](arduino/buzzer1/buzzer1.ino)
